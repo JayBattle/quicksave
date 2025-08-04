@@ -10,6 +10,8 @@ for d in */ ; do
     read -p "Would you like to commit $d? y or n: " -r response
     if [ "$response" == "y" ]; then
         echo "committing $d"
+        cd $d
         quickcommit.sh \"$(date)\"
+        cd ..
     fi
 done
