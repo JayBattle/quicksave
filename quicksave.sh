@@ -15,7 +15,7 @@ fi
 
 shift 1
 
-if [[ -z "$2" ]]; then
+if [[ -z "$1" ]]; then
     CommitMessage=$timestamp
 else
     CommitMessage=$@
