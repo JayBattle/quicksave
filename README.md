@@ -2,18 +2,20 @@
 A script to quickly git commit multiple repositories using a timestamp as the commit message
 
 ## Requires
-quickcommit.sh
+- quickcommit.sh
 
 ## Setup
-chmod +x quicksave.sh
-cp quicksave.sh /usr/local/bin
+1) chmod +x quicksave.sh
+2) cp quicksave.sh /usr/local/bin
 
 ## Startup
-navigate to a folder containing multiple repos
-quicksave.sh
+1) navigate to a folder containing multiple repos
+2) quicksave.sh
 
 Optional Arugments:
+
 Enter the following Arguments in order
+
 1) all or ask
 - all commits all directories
 - ask prompts
