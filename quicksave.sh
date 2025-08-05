@@ -5,15 +5,20 @@
 # Prequisites: authenticate w/ git Ex: (git config --global user.email "EMAIL") (add git ssh key)
 # Note: Do not use sudo!
 Scope=$1
-CommitMessage=$2
 timestamp=$(date)
+
+if [[ -z "$2" ]]; then
+    CommitMessage=$timestamp
+else
+    CommitMessage=$2
+fi
 
 if [[ "$1" == "all" ]]; then
     echo "Commiting All Repositories!"
     for d in */ ; do
         echo "committing $d"
         cd $d
-        quickcommit.sh \"$(date)\"
+        quickcommit.sh \"$CommitMessage\"
         cd ..
     done
 else
@@ -23,7 +28,7 @@ else
         "y" | "Y" )
             echo "committing $d"
             cd $d
-            quickcommit.sh \"$(date)\"
+            quickcommit.sh \"$CommitMessage\"
             cd .. ;;
         "n" | "N" )
             echo "Skipping $d" ;;
