@@ -7,16 +7,23 @@
 Scope=$1
 timestamp=$(date)
 
+if [[ "$1" == "all" ]]; then
+    CommitAll=true
+else
+    CommitAll=false
+fi
+
+shift 1
+
 if [[ -z "$2" ]]; then
     CommitMessage=$timestamp
 else
-    CommitMessage=$2
+    CommitMessage=$@
 fi
 
-if [[ "$1" == "all" ]]; then
+if $CommitAll; then
     echo "Commiting All Repositories!"
     for d in */ ; do
-        echo "committing $d"
         cd $d
         quickcommit.sh \"$CommitMessage\"
         cd ..
@@ -26,7 +33,6 @@ else
     read -p "Would you like to commit $d? y or n: " -r response
     case "$response" in
         "y" | "Y" )
-            echo "committing $d"
             cd $d
             quickcommit.sh \"$CommitMessage\"
             cd .. ;;
