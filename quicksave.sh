@@ -6,6 +6,7 @@
 # Note: Do not use sudo!
 Scope=$1
 timestamp=$(date)
+PathToScripts="/usr/local/bin/quickcommit.sh"
 
 if [[ "$1" == "all" ]]; then
     CommitAll=true
@@ -25,7 +26,7 @@ if $CommitAll; then
     echo "Commiting All Repositories!"
     for d in */ ; do
         cd $d
-        quickcommit.sh \"$CommitMessage\"
+        $PathToScripts \"$CommitMessage\" #Fix
         cd ..
     done
 else
@@ -34,7 +35,7 @@ else
     case "$response" in
         "y" | "Y" )
             cd $d
-            quickcommit.sh \"$CommitMessage\"
+            $PathToScripts \"$CommitMessage\"
             cd .. ;;
         "n" | "N" )
             echo "Skipping $d" ;;

@@ -1,8 +1,12 @@
 # quicksave
-A script to quickly git commit  multiple repositories using a timestamp as the commit message
+A script to quickly git commit multiple repositories using a timestamp as the commit message
 
 ## Requires
 quickcommit.sh
+
+## Setup
+chmod +x quicksave.sh
+cp quicksave.sh /usr/local/bin
 
 ## Startup
 navigate to a folder containing multiple repos
