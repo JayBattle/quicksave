@@ -1,12 +1,12 @@
 #!/bin/bash
 # This script coimmits multiple repos
-# Syntax: quickcommit.sh
-# Requires: git, quickcommit.sh
-# Prequisites: authenticate w/ git Ex: (git config --global user.email "EMAIL") (add git ssh key)
+# Syntax: quicksave.sh
+# Requires: git, quicksave.sh
+# Prequisites: quickcommit, authenticate w/ git Ex: (git config --global user.email "EMAIL") (add git ssh key)
 # Note: Do not use sudo!
 Scope=$1
-timestamp=$(date)
-PathToScripts="/usr/local/bin/quickcommit.sh"
+Timestamp=$(date)
+QuickCommit="/usr/local/bin/quickcommit.sh"
 
 if [[ "$1" == "all" ]]; then
     CommitAll=true
@@ -17,7 +17,7 @@ fi
 shift 1
 
 if [[ -z "$1" ]]; then
-    CommitMessage=$timestamp
+    CommitMessage=$Timestamp
 else
     CommitMessage=$@
 fi
@@ -26,7 +26,7 @@ if $CommitAll; then
     echo "Commiting All Repositories!"
     for d in */ ; do
         cd $d
-        $PathToScripts \"$CommitMessage\" #Fix
+        $QuickCommit \"$CommitMessage\" #Fix
         cd ..
     done
 else
@@ -35,7 +35,7 @@ else
     case "$response" in
         "y" | "Y" )
             cd $d
-            $PathToScripts \"$CommitMessage\"
+            $QuickCommit \"$CommitMessage\"
             cd .. ;;
         "n" | "N" )
             echo "Skipping $d" ;;
