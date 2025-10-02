@@ -31,16 +31,16 @@ if $CommitAll; then
     done
 else
     for d in */ ; do
-    read -p "Would you like to commit $d? y or n: " -r response
-    case "$response" in
-        "y" | "Y" )
-            cd $d
-            $QuickCommit \"$CommitMessage\"
-            cd .. ;;
-        "n" | "N" )
-            echo "Skipping $d" ;;
-        * )
-            echo "Invalid input. Skipping $d" ;;
-    esac
-done
+        read -p "Would you like to commit $d? y or n: " -r response
+        case "$response" in
+            "y" | "Y" )
+                cd $d
+                $QuickCommit \"$CommitMessage\"
+                cd .. ;;
+            "n" | "N" )
+                echo "Skipping $d" ;;
+            * )
+                echo "Invalid input. Skipping $d" ;;
+        esac
+    done
 fi
