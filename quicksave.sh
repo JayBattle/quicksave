@@ -1,6 +1,6 @@
 #!/bin/bash
 # This script coimmits multiple repos
-# Syntax: quicksave.sh
+# Syntax: quicksave.sh all or ask "MESSAGE"
 # Requires: git, quicksave.sh
 # Prequisites: quickcommit, authenticate w/ git Ex: (git config --global user.email "EMAIL") (add git ssh key)
 # Note: Do not use sudo!

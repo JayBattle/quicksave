@@ -1,0 +1,3 @@
+[submodule "quickcommit"]
+	path = quickcommit
+	url = git@github.com:JayBattle/quickcommit.git
